@@ -1,0 +1,210 @@
+html{
+  height: 100%;
+}
+h1 {
+  text-align: center;
+  margin: 1rem;
+}
+body {
+  margin: 0;
+  background: -webkit-linear-gradient(90deg, #5f2c82,#49a09d);
+  background: linear-gradient(90deg, #5f2c82, #49a09d);
+  font-family: sans-serif;
+  font-weight: 100;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+.rauclass input[type = "submit"] {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  border: 2px solid;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  background: none;
+  }
+  
+  .rauclass input[type = "submit"]:hover {
+    background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+  }
+  
+.butt {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  border: 2px solid;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin: 20px 10px 10px 10px;
+  letter-spacing: 4px
+  }
+  
+  .butt:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+  }
+  
+  
+.container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-decoration: none;
+}
+.containe {
+  position: absolute;
+  top: 83%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+table {
+  width: 900px;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: center;
+}
+th {
+  text-align: center;
+}
+thead th {
+  background-color: #55608f;
+}
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+/* image CSS*/
+.profile_img {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.profile_image {
+  display: block;
+  width: 22%;
+  height: auto;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute; 
+  border-radius: 5px;
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 22%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile_img:hover .overlay {
+  opacity: 1;
+}
+
+/*Edit image*/
+
+.img_profile_edit{
+  height: 170px;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  position: relative;
+  border: #fff solid 2px;
+  border-radius: 50%;
+  background: url('img_avatar.png');
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.my_pic{
+  position: absolute;
+  bottom: 0;
+  outline: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+.my_pic::-webkit-file-upload-button{
+  visibility: hidden;
+}
+.my_pic::before{
+  content:"              Upload Image";
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  -webkit-user-select: none;
+}
+
+.my_pic:hover{
+  opacity: 1;
+}

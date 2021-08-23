@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<head>
+	<!-- templatemo 419 black white -->
+    <!-- 
+    Black White
+    http://www.templatemo.com/preview/templatemo_419_black_white
+    -->
+	<title>Home</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet" type="text/css">
+	<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+	{% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/templatemo_style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="templatemo-container">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 black-bg left-container">
+			<h1 class="logo-left hidden-xs margin-bottom-60">Driver Drowsy </h1>	
+			<div class="tm-left-inner-container">
+				<ul class="nav nav-stacked templatemo-nav">
+				  <li><a href="{% static 'DDD/index.html' %}">Home </a></li>
+                  <br><br><br>
+				  {% load static %}
+				  <div style="text-align:center" >
+						<img src="{% static 'images/camera.png' %}" alt="" width="100" height="100">
+				  </div>
+
+                  <h1>Help:</h1>
+                  <p> <B>First,</B> Raise your first (index) finger in the left hand for voice assistance.</p> 
+                  <p> <B>Second,</B>Raise your index and middle fingers together on the left hand. </p>
+                  <p> <B></B> - To change the volume by moving your thumb and forefinger on the right hand. </p>
+                  <h1>Note:</h1>
+                  <p> <B>First,</B> you must not sleep.</p> 
+                  <p> <B>Second,</B> avoid taking your eyes off the road.</p>
+                  <p> <B>Third,</B> avoid placing your hand close to the eye </p>
+                  <p style="text-align:center">to avoid increasing blind spots.</p>
+				</ul>
+			</div>
+		</div> <!-- left section -->
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 white-bg right-container">
+			<h1 class="logo-right hidden-xs margin-bottom-40">Detection</h1>	
+			<div class="tm-right-inner-container">
+
+				<h1 class="templatemo-header"></h1>
+
+				{% load static %}
+				
+				<article class="templatemo-item">
+					<h3>Camera 1 (Default)</h3>
+					<table>
+						<tr >
+							<th width="1000" height="100">
+
+								<div style="text-align:right">	
+									<p>
+										<img src="{% url 'video-feed-1' %}" alt=""><br><br>	
+									</p>
+								</div>
+							</th>
+							<th>
+								<div id="wrapper">
+									<div id="output"><img src="{% static 'images/location_icon.png' %}" alt="" width="100" height="100"></div>
+									<button id="location-button">Get Current Location</button>
+								</div>
+
+							</th>
+						</tr>
+					</table>
+						
+				</article><hr>
+
+				<footer>
+					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-copyright">Kareem Gamal</p>
+					<br>
+					
+					<!-- 					<p class="col-lg-6 col-md-6 col-sm-12 col-xs-12 templatemo-social">
+						<a href="#"><i class="fa fa-facebook fa-medium"></i></a>
+						<a href="#"><i class="fa fa-twitter fa-medium"></i></a>
+						<a href="#"><i class="fa fa-google-plus fa-medium"></i></a>
+						<a href="#"><i class="fa fa-youtube fa-medium"></i></a>
+						<a href="#"><i class="fa fa-linkedin fa-medium"></i></a>
+					</p> -->
+					
+				</footer>
+			</div>	
+		</div> <!-- right section -->
+	</div>	
+
+	<script>
+		const menu = document.querySelector('#mobile-menu');
+		const menuLinks = document.querySelector('.navbar__menu');
+	
+		menu.addEventListener('click', function() {
+		menu.classList.toggle('is-active');
+		menuLinks.classList.toggle('active');
+		});
+		$('#location-button').click(function(){
+			if(navigator.geolocation)
+			navigator.geolocation.getCurrentPosition(function(position){
+				console.log(position);
+				$.get( "http://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude + "," + position.coords.longitude +"&sensor=false", function(data) {
+					console.log(data);
+                })
+				var img = new Image();
+				img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + position.coords.latitude + "," + position.coords.longitude + "&zoom=13&size=800x400&sensor=false";
+				$('#output').html(img);
+			});
+			else
+				console.log("geolocation is not supported")
+		});
+	</script>
+
+
+</body>
+</html>

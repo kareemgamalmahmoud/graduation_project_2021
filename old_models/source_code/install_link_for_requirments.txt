@@ -1,0 +1,2 @@
+
+https://intellipaat.com/community/31672/how-to-use-requirements-txt-to-install-all-dependencies-in-a-python-project
